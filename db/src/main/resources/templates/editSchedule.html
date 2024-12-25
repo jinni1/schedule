@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스케줄 수정</title>
+</head>
+<body>
+<h1>스케줄 수정</h1>
+<form th:action="'/member-page/schedule/edit/' + ${schedule.id}" method="post">
+    <label for="edit-schedule">새로운 날짜:</label>
+    <input type="date" id="edit-schedule" name="schedule" th:value="${schedule.schedule}" required>
+    <input type="hidden" name="memberId" th:value="${schedule.memberId}">
+    <button type="submit">수정</button>
+</form>
+</body>
+</html>

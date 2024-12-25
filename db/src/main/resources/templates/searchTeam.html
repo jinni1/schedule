@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팀 검색</title>
+</head>
+<body>
+<h1>팀 검색</h1>
+<form action="/team/search" method="get">
+  <label for="team-name">팀 이름:</label>
+  <input type="text" id="team-name" name="name" required>
+  <button type="submit">검색</button>
+</form>
+
+<ul>
+  <li th:each="team : ${teams}">
+    <span th:text="${team.name}"></span>
+    <form th:action="'/team/join/' + ${team.id}" method="get" style="display: inline;">
+      <button type="submit">가입</button>
+    </form>
+  </li>
+</ul>
+
+<a href="/team/create">팀 생성</a> | <a href="/team/delete">팀 삭제</a>
+</body>
+</html>
